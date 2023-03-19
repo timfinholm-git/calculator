@@ -1,7 +1,19 @@
-﻿namespace CalculatorLibrary
+﻿using System.Diagnostics;
+using System.Transactions;
+
+namespace CalculatorLibrary
 {
     public class Calculator
     {
+        public Calculator() 
+        {
+            StreamWriter logFile = File.CreateText("calculator.log");
+            Trace.Listeners.Add(new TextWriterTraceListener(logFile));
+            Trace.AutoFlush = true;
+            Trace.WriteLine("Starting calculator log");
+            Trace.WriteLine(String.Format("Started {0}", System.DateTime.Now.ToString()));
+
+        }
         public static double DoOperation(double num1, double num2, string op)
             {
                 double result = double.NaN;

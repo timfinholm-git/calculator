@@ -15,6 +15,7 @@ namespace CalculatorProgram
             
             while (!endApp)
             {
+                Calculator calculator = new Calculator();
                 string numInput1 = "";
                 string numInput2 = "";
                 double result = 0;
